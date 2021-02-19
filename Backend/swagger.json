@@ -1,0 +1,211 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Memes"
+    },
+    "host": "localhost:8081",
+    "basePath": "/memes",
+    "tags": [
+        {
+            "name": "Memes"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Memes"
+                ],
+                "summary": "Get Memes",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operation Success"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Memes"
+                ],
+                "summary": "Post Memes",
+                "consumes": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Meme to be store",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/component/schemas/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operation Success"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "409": {
+                        "description": "Duplicate"
+                    }
+                }
+            }
+        },
+        "/{memeId}": {
+            "get": {
+                "tags": [
+                    "Memes"
+                ],
+                "summary": "Find Meme by ID",
+                "description": "Returns a single meme",
+                "operationId": "getMemeById",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "memeId",
+                        "in": "path",
+                        "description": "ID of meme to return",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/component/schemas/User"
+                        }
+                    },
+                    "404": {
+                        "description": "Meme not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Memes"
+                ],
+                "summary": "Update Meme by ID",
+                "description": "Returns a single meme",
+                "operationId": "updateMemeById",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "memeId",
+                        "in": "path",
+                        "description": "Meme that need to be updated",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Updated user object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/component/schemas/User_2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operation Success"
+                    },
+                    "404": {
+                        "description": "Meme not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Memes"
+                ],
+                "summary": "Delete Meme by ID",
+                "description": "Deletes a single meme",
+                "operationId": "deleteMemeById",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "memeId",
+                        "in": "path",
+                        "description": "Meme that need to be updated",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operation Success"
+                    },
+                    "404": {
+                        "description": "Meme not found"
+                    }
+                }
+            }
+        }
+    },
+    "component": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name"
+                    },
+                    "caption": {
+                        "type": "string",
+                        "description": "The caption"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The url"
+                    }
+                }
+            },
+            "User_2": {
+                "type": "object",
+                "properties": {
+                    "caption": {
+                        "type": "string",
+                        "description": "The caption"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The url"
+                    }
+                }
+            }
+        }
+    }
+}
