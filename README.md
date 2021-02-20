@@ -1,10 +1,5 @@
 # XMeme
 
-### [Public Frontend HyperLink](https://mohitjaiswalxmeme.netlify.app)
-
-### [Public Backend HyperLink](https://xmeme.mohitjaiswal.studio/memes) 
-
-
 ## Local Run Backend
 
 * To run the Backend locally on Port `8080` and `8081`
