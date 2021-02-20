@@ -4,7 +4,7 @@ const Meme = require('../models/meme');
 
 //returns last 100 memes
 router.get('/memes', function (req, res, next) {
-    Meme.find({}).limit(100).sort({ _id: -1 })
+    Meme.find({}).limit(2).sort({ _id: -1 })
         .then(data => {
             if (data.length === 0) {
                 res.status(500).send(data);
