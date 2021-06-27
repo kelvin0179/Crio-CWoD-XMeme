@@ -14,7 +14,6 @@ const port = 8081;
 app.use(cors());
 app.use(bodyParser.json());
 
-//const ATLAS_URI = "mongodb+srv://kelvin_0179:zh3OYBOESPY2NPWt@cluster0.dtdnj.mongodb.net/Cluster0?retryWrites=true&w=majority?authSource=yourDB&w=1";
 const ATLAS_URI = "mongodb://localhost/xmemedb";
 mongoose.connect(ATLAS_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
